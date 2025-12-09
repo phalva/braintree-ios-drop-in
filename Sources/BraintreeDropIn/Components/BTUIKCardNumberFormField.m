@@ -101,6 +101,7 @@
 }
 
 - (void)setText:(NSString *)text {
+    NSLog(@"Card Number setText: %@", text);
     [super setText:text];
     [self fieldContentDidChange];
 }
@@ -135,7 +136,7 @@
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
     self.textField.text = _number;
-    NSLog(@"textFieldDidBeginEditing: %@", _number);
+    NSLog(@"Card Number: %@", textField.text);
     [super textFieldDidBeginEditing:textField];
     self.displayAsValid = self.valid || (!self.isValidLength && self.isPotentiallyValid);
     self.labelText = @"";
@@ -158,6 +159,7 @@
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
     [super textFieldDidEndEditing:textField];
+    NSLog(@"Card Number: %@", textField.text);
     self.displayAsValid = self.number.length == 0 || (![self isValidLength] && self.state == BTUIKCardNumberFormFieldStateValidate) || (_cardType != nil && [_cardType validNumber:_number]);
     self.labelText = self.number.length == 0 || (![self isValidLength] && self.state == BTUIKCardNumberFormFieldStateValidate) ? @"" : BTDropInLocalizedString(CARD_NUMBER_PLACEHOLDER);
     [UIView animateWithDuration:0.2 animations:^{
