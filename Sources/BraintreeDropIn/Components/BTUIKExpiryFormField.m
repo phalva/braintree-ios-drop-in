@@ -144,12 +144,14 @@
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
     [super textFieldDidBeginEditing:textField];
+    NSLog(@"expriry textfield: %@", textField.text);
     self.displayAsValid = YES;
     
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
     [super textFieldDidEndEditing:textField];
+    NSLog(@"expriry textfield: %@", textField.text);
     self.displayAsValid = self.textField.text.length == 0 || self.valid;
     [self updateAppearance];
 }

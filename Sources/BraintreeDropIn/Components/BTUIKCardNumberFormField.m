@@ -129,11 +129,13 @@
         NSMutableAttributedString *text = [[NSMutableAttributedString alloc] initWithAttributedString:[self.cardType formatNumber:_number kerning:TEMP_KERNING]];
         self.textField.attributedText = text;
         self.textField.selectedTextRange = r;
+        NSLog(@"formatCardNumber: %@", text);
     }
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
     self.textField.text = _number;
+    NSLog(@"textFieldDidBeginEditing: %@", _number);
     [super textFieldDidBeginEditing:textField];
     self.displayAsValid = self.valid || (!self.isValidLength && self.isPotentiallyValid);
     self.labelText = @"";

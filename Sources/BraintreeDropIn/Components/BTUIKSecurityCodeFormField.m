@@ -39,11 +39,13 @@
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
     [super textFieldDidBeginEditing:textField];
+    NSLog(@"security code textfield: %@", textField.text);
     [self updateAppearance];
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
     [super textFieldDidEndEditing:textField];
+    NSLog(@"security code textfield: %@", textField.text);
     [self updateAppearance];
 }
 
